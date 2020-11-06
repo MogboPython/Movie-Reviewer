@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1>Welcome to TopReviews</h1>
+    <p class="lead">This is built on the Python Flask Framework and it is for posting reviews about any movie or series you have seen, and you can do that by going to the Dashboard link at the top right hand side of your page, once you are logged in.</p>
+    <p>A practice project following "Python Flask From Scratch" YouTube series by Brad Traversy</p>
+    {% if session.logged_in == NULL %}
+        <a href="/register" class="btn btn-primary btn-lg">Register</a>
+        <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {%endif%}
+</div>
+
+{% endblock %}

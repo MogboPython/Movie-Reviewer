@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+    <h1>Reviews</h1>
+    <form class = "form-inline my-2 my-lg-0" method = "post" action = "{{url_for('search')}}">
+        <input class = "form-control mr-sm-2" type = "text" placeholder="Search for Reviews here" name = "search" value = {{request.form.search}}>
+        <button class = "btn btn-outline-success my-2 my-sm-0" type = "submit">Search</button>
+    </form>
+    <ul class="list-group">
+        {% for review in reviews %}
+            <li class="list-group-item"><a href="review/{{review.id}}">{{review.title}}</a></li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}
+
