@@ -24,12 +24,12 @@ mysql = MySQL(app)
 #Route for Index/Home page
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return render_template('home.html', title = 'Home Page')
 
 #Route for About page
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', title = 'About')
 
 #Route for all Reviews
 @app.route('/reviews')
@@ -149,14 +149,14 @@ def login():
                 return redirect(url_for('index'))
             else:
                 error = 'Password is incorrect'
-                return render_template('login.html', error = error)
+                return render_template('login.html', error = error, title = 'Login')
             #Close connection
             cur.close()
         else:
             error = 'Username not found'
-            return render_template('login.html', error = error)
+            return render_template('login.html', error = error, title = 'Login')
 
-    return render_template('login.html')
+    return render_template('login.html', title = 'Login')
 
 #Check if user logged in
 def is_logged_in(f):
